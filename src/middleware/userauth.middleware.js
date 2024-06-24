@@ -9,6 +9,7 @@ export function userauth(req,res,next){
         }
       
   });
+  // console.log('hello');
   console.log(result);
   if(result)
   next();
