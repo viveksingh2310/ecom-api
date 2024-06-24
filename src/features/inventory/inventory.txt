@@ -1,0 +1,4 @@
+functionalities:-
+1 get all the products with the relevant info like the name id sellerid locations seller products and the expiry dates and the 
+2 get the dead stocks 
+3 ability to calculate the extimated total sales by mul quantiity and the priec of the items 
