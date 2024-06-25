@@ -1,4 +1,4 @@
-export  default class ProductModel {
+export default class ProductModel {
     constructor(id, name, price, av_quant){
         this.id = id;
         this.name = name;
@@ -11,6 +11,37 @@ export  default class ProductModel {
     getById(id) {
         return this.db.find((p) => p.id == id);
     }
+    updateProduct(product){
+        const {id,name,price,av_quant}=product;
+        const productFound=this.db.find((p)=>p.id==id);
+        if(!productFound){
+            return null;
+        }else{
+            this.db.forEach((u)=>{
+                if(u.id==id){
+                    u.name=name;
+                    u.av_quant=av_quant;
+                    u.price=price;
+                }
+               
+            });
+            return this.db.find((p)=>p.id==id);
+        }
+
+    }
+    delete(id){
+       const delIndex= this.db.findIndex((p)=>p.id==id);
+       if(!delIndex){
+        return null;
+       }
+       this.db.splice(delIndex,1);
+       this.db.forEach((p)=>{
+        if(p.id>=delIndex){
+            p.id=p.id-1;
+        }
+       });
+       return this.db;
+    }
     db = [
         new ProductModel(1, 'Apple iPhone 14 max pro', '120000', '450'),
         new ProductModel(2, 'Apple iPhone 15 max pro', '128000', '540'),
@@ -21,5 +52,5 @@ export  default class ProductModel {
         new ProductModel(7, 'Dell Mouse with Optical 456XC45 Tracking', '458', '59'),
         new ProductModel(8, 'Apple Pencil', '11000', '152'),
         new ProductModel(9, 'Exhanced mopping', '508', '10'),
-    ]
+        ]
 }
