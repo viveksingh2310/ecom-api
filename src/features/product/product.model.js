@@ -4,7 +4,7 @@ export default class ProductModel {
         this.name = name;
         this.price = price;
         this.av_quant = av_quant;
-        this.ratings=[];//every product would have rating 
+        this.ratings=[];
     }
   static getAll() {
         return this.db;
@@ -24,11 +24,9 @@ export default class ProductModel {
                     u.av_quant = av_quant;
                     u.price = price;
                 }
-
             });
             return this.db.find((p) => p.id == id);
         }
-
     }
    static delete(id) {
         const delIndex = this.db.findIndex((p) => p.id == id);
@@ -36,11 +34,6 @@ export default class ProductModel {
             return null;
         }
         this.db.splice(delIndex, 1);
-        this.db.forEach((p) => {
-            if (p.id >= delIndex) {
-                p.id = p.id - 1;
-            }
-        });
         return this.db;
     }
    static db = [
