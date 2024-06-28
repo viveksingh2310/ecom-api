@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { UserModel } from "../users/users.model.js";
+import UserModel from "../users/users.model.js";
 export class UserController {
     static signup(req, res) {// adding the user to the database
         const { email, pass } = req.body;

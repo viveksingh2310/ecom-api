@@ -4,6 +4,7 @@ export default class ProductModel {
         this.name = name;
         this.price = price;
         this.av_quant = av_quant;
+        this.ratings=[];//every product would have rating 
     }
   static getAll() {
         return this.db;
