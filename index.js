@@ -15,3 +15,6 @@ app.use('/api/rate',RateRouter)
 app.use('/api/users',UserRouter)
 app.use('/api/products',jwtAuth, ProductRouter)
 app.use('/api/cart',CartRouter);
+app.use((req,res)=>{
+    return res.status(404).send('API not found')
+})
