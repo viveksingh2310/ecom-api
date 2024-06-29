@@ -13,6 +13,6 @@ export default class RateController{
         return res.status(200).send(ratingAdded);// we can easily see the updated product information
     }
     static getRatings(req,res){
-        return res.status(200).send(RateModel.get());
+        return res.status(200).send(RateModel.db);
     }
 }

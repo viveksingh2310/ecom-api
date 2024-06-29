@@ -1,5 +1,5 @@
 import ProductModel from "../product/product.model.js";
-import UserModel from "../users/users.model.js";
+// import UserModel from "../users/users.model.js";
 export default class RateModel {
     constructor(pid, uid, rating) {//here pid is the product id and rid is the rating id 
         if (rating > 5 && rating < 0) {
