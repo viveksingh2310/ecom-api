@@ -1,0 +1,136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "description": "e-com API built using the ",
+        "title": "ECOM API"
+    },
+    "servers": [
+        {
+            "url": "hhtp://localhost:5000"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "JWT": {
+                "in": "header",
+                "name": "Authorization",
+                "type": "apikey"
+            }
+        }
+    },
+    "paths": {
+        "api/users": {
+            "get": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Get Users Function",
+                "description": "this will return the users registered in the API",
+                "security": [
+                    {
+                        "JWT": {}
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the users will be returned with two attributes ie, email and password"
+                    },
+                    "400": {
+                        "description": "A Bad Request is sent to the server to retrieve the Users"
+                    }
+                }
+            }
+        },
+    "api/users/signup": {
+        "post": {
+            "tags": [
+                "Users"
+            ],
+            "summary": "Signup",
+            "description": "User will register himself after successfull operation",
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "200": {
+                    "description": "The user is successfully registered in the API database"
+                },
+                "400": {
+                    "description": "A Bad Request is sent to the server"
+                }
+            }
+        }
+    },
+    "api/users/delete":{
+        "delete":{
+            "tags":["Users"],
+            "summary":"Delete the User",
+            "description":"this will delete the respective user",
+            "requestBody":{
+                "content":{
+                    "application/json":{
+                        "schema":{
+                            "properties":{
+                                "email":{"type":"string"},
+                                "password":{"type":"string"
+                            }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses":{
+                "200":{"description":"A User would be successfully deleted from the databse of API"},
+                "400":{"description":"A bad request"}
+            }
+        }
+    },
+    "api/users/signin":{
+        "post":{
+            "tags":["Users"],
+            "summary":"SignIn",
+            "description":"This will signin the users to the ecom API",
+            "requestBody":{
+"content":{
+    "application/json":{
+        "schema":{
+            "properties":{
+                "email":{
+                    "type":"string"},
+                    "password":{
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+},
+ "responses":{
+    "200":{
+        "description":"The user will recieve a token"
+    },
+    "400":{
+        "description":"A bad request is sent to the user for signin"
+    }
+}
+            }
+        }
+    }
+}
+
+    
