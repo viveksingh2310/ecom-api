@@ -6,6 +6,7 @@ import { UserRouter } from './src/features/users/users.routes.js';
 import { RateRouter } from './src/features/rate/rate.routes.js';
 import { jwtAuth } from './src/middlewares/user.authentication.js';
 import CartRouter from './src/features/cart/cart.routes.js';
+import loggerMiddleware from './src/middlewares/logger.middleware.js';
 export const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -13,6 +14,7 @@ var corsOptions={
     origin:'http://127.0.0.1:3000'}
 
 app.use(cors(corsOptions));
+app.use(loggerMiddleware);
 app.get('/', (req, res) => {
     return res.status(200).send('you are in the index page of the API');
 });
