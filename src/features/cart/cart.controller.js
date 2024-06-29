@@ -26,6 +26,6 @@ export default  class CartController{
         return res.status(200).send(CartModel.deleteItem(id));
     }
     static get(req,res){
-        return res.status(200).send(CartModel.get);
+        return res.status(200).send(CartModel.get());
     }   
 }

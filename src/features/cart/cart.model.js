@@ -13,9 +13,10 @@ export default class CartModel {
 
     }
     static getItems(uid) {// this will return the cart of a specific user
-        const items = this.db.forEach((c) => {
-            if (c.uid == uid)
-                return c;
+        let items=[];
+         this.db.forEach((c) => {
+            if (c.uid==uid)
+                items.push(c)
         });
         return items;
     }
