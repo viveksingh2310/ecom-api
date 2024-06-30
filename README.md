@@ -1,5 +1,5 @@
 # ecom-api
-1)<b>Standard Design Model</b><br/>
+1)<b>Basic Model</b><br/>
 2)<b>User Authentication Middleware</b><br/>
 3)<b>Rating Functionality</b><br/>
 4)<b>Cart Functionality</b><br/>
