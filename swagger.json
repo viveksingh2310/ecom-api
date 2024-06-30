@@ -130,7 +130,287 @@
 }
             }
         }
+        ,
+    "api/products/":{
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Products",
+                "description": "this will return product array",
+                "security": [
+                    {
+                        "JWT": {}
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "the array of the products present in the API will be returned"
+                    },
+                    "400": {
+                        "description": "A Bad Request is sent to the server to get product"
+                    }
+                }
+            }
+        },
+    "api/products/update":{
+            "post":{
+                "tags":["Products"],
+                "summary":"Update Product",
+                "description":"This will update the sent product.",
+                "requestBody":{
+    "content":{
+        "application/json":{
+            "schema":{
+                "properties":{ 
+                    "id":{
+                        "type":"number"},
+                    "name":{
+                            "type":"string"
+                        },
+                    "price":{
+                        "type":"number"
+                            },
+                    "av_quant":{
+                        "type":"number"
+                    }
+                    }
+                }
+            }
+        }
+    },
+     "responses":{
+        "200":{
+            "description":"Thew updated product is return in json"
+        },
+        "400":{
+            "description":"A bad request"
+        }
     }
-}
+                }
+        },
+    "api/products/delete":{
+            "delete":{
+                "tags":["Products"],
+                "summary":"Delete Products",
+                "description":"Delete the product whose id is matched else will return error",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "properties":{
+                                    "id":{
+                                        "type":"number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "responses":{
+                    "200":{
+                        "description":"The newly Product list after deletion is sent to the clients"
+                    },
+                    "400":{
+                        "description":"A badd request for deletion of products"
+                    }
+                }
+            }
+        },
+    "api/rate":{
+            "get":{
+                "tags":["Rating"],
+                "summary":"Get Ratings",
+                "description":"We will get the ratings present in the API",
+                "responses":{
+                    "200":{
+                        "description":"The array of the ratings are returned."
+                    },
+                    "400":{
+                        "description":"A bad request for geting the rating of the products"
+                    }
+                }
+            },
+            "post":{
+                "tags":["Rating"],
+                "summary":"Update/Add Rating",
+                "description":"This will add and update the rating present in the API database",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "properties":{
+                                    "userId":{
+                                        "type":"number"
+                                    },
+                                    "pid":{
+                                        "type":"number"
+                                    },
+                                    "rating":{
+                                        "type":"number"
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "responses":{
+                    "200":{
+                        "description":"The newly/updated rating is successfully returned"
+                    },
+                    "400":{
+                        "description":"A Bad Request"
+                    }
+                }
+            }
+        },
+    "api/cart":{
+            "get":{
+                "tags":["Cart"],
+                "summary":"Get Carts",
+                "description":"We will get all the carts in array",
+                "responses":{
+                    "200":{
+                        "description":"The cart will be returned in array"
+                    },
+                    "400":{
+                        "description":"A Bad Request"
+                    }
+                }
+            }
+
+        },
+    "api/cart/add":{
+            "put":{
+                "tags":["Cart"],
+                "summary":"Add Products to Cart",
+                "description":"This will add the product to the respective userId in the Cart database API",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "properties":{
+                                    "uid":{
+                                        "type":"number"
+                                    },
+                                    "proInfo":{
+                                        "type":"object",
+                                        "properties":{
+                                            "uid":{
+                                                "type":"number"},
+                                        "quantity":{
+                                            "type":"number"
+                                        }
+                                    }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses":{
+                        "200":{"description":"The newly updated array of the Cart will be returned after succesfull execution"
+                    },
+                    "400":{"description":"A Bad Request"}
+                    }
+                }
+            },
+    "api/cart/items":{
+                "post":{
+                    "tags":["Cart"],
+                    "summary":"Get Product of Cart",
+                    "description":"The product of the respective cart will be returned",
+                    "requestBody":{
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "properties":{
+                                        "uid":{
+                                            "type":"number"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    },
+                    "responses":{
+                        "200":{
+                            "description":"The products present in the respective cart will be returned in array format"
+                        },
+                        "400":{
+                            "description":"A Bad Request"
+                        }
+                    }
+                }
+            },
+    "api/cart/delete":{
+                "delete":{
+                    "tags":["Cart"],
+                    "summary":"Delete Product",
+                    "description":"Delete the product from the Cart",
+                    "requestBody":{
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                   "properties":{
+                                    "id":{"type":"number"}
+                                   }
+                                }
+                            }
+                        }
+                    },
+                    "responses":{
+                        "200":{
+                            "description":"The array with deleted Product is returned in this"
+                        },
+                        "400":{
+                            "description":"A Bad Request"
+                        }
+                    }
+                }           
+            },
+    "api/cart/update":{
+                "post":{
+                    "tags":["Cart"],
+                    "summary":"Update Cart",
+                    "description":"This will update the respective cart and send the updated Cart Item from the database present in API",
+                    "requestBody":{
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "properties":{
+                                        "id":{"type":"number"},
+                                        "proInfo":{
+                                            "properties":{
+                                                "uid":{
+                                                    "type":"number"},
+                                            "quantity":{
+                                                "type":"number"
+                                            }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    },
+                    "responses":{
+                        "200":{
+                            "description":"The item to be updated in the respective cart is successfully returned in this."
+                        },
+                        "400":{
+                            "description":"A Bad Request"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     

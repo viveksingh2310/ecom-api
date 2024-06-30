@@ -95,3 +95,9 @@
 2024-06-29T17:26:31.154Z	Log Info-	URL- /docs/swagger-ui-standalone-preset.js	Req. Body {}. 
 2024-06-29T17:26:31.154Z	Log Info-	URL- /docs/swagger-ui-init.js	Req. Body {}. 
 2024-06-29T17:26:31.271Z	Log Info-	URL- /docs/favicon-32x32.png	Req. Body {}. 
+2024-06-30T14:41:53.818Z	Log Info-	URL- /docs/	Req. Body {}. 
+2024-06-30T14:41:53.888Z	Log Info-	URL- /docs/swagger-ui.css	Req. Body {}. 
+2024-06-30T14:41:53.903Z	Log Info-	URL- /docs/swagger-ui-bundle.js	Req. Body {}. 
+2024-06-30T14:41:53.904Z	Log Info-	URL- /docs/swagger-ui-standalone-preset.js	Req. Body {}. 
+2024-06-30T14:41:53.904Z	Log Info-	URL- /docs/swagger-ui-init.js	Req. Body {}. 
+2024-06-30T14:41:54.389Z	Log Info-	URL- /docs/favicon-32x32.png	Req. Body {}. 
